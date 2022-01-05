@@ -329,10 +329,10 @@ class FuzzyController:
         rule_18 = max(min(pa_dict["down_right"], pv_dict["cw_slow"]), min(pa_dict["down_right"], 1 - cv_dict["right_fast"]))
         rule_26 = max(min(pa_dict["up_right"], pv_dict["cw_slow"]), min(pa_dict["up_right"], 1 - cv_dict["right_fast"]))
         rule_27 = max(min(pa_dict["up_right"], pv_dict["stop"]) , min(pa_dict["up_right"], 1 - cv_dict["right_fast"]))
-        rule_32 = max(min(pa_dict["up_right"], pv_dict["cw_fast"]), min(pa_dict["up_right"], 1 - cv_dict["right_fast"]))
-        rule_33 = max(min(pa_dict["up_left"], pv_dict["cw_fast"]), min(pa_dict["up_left"], 1 - cv_dict["left_fast"]))
-        rule_35 = max(min(pa_dict["down"], pv_dict["stop"]), min(pa_dict["down"], 1 - cv_dict["right_fast"]))
-        rule_41 = max(min(pa_dict["up"], pv_dict["cw_fast"]), min(pa_dict["up"], 1 - cv_dict["right_fast"]))
+        rule_32 = min(pa_dict["up_right"], pv_dict["cw_fast"])
+        rule_33 = max(min(pa_dict["up_left"], pv_dict["cw_fast"]), min(pa_dict["up_left"], cv_dict["left_fast"]))
+        rule_35 = min(pa_dict["down"], pv_dict["stop"] , min(pa_dict["down"], 1 - cv_dict["right_fast"]))
+        rule_41 = max(min(pa_dict["up"], pv_dict["cw_fast"]), min(pa_dict["up"], cv_dict["left_fast"]))
 
         # rule_43 = max(pa_dict["down_more_right"], pa_dict["down_right"]), max(pv_dict[""], pv_dict[""])
 
@@ -421,9 +421,9 @@ class FuzzyController:
         rule_20 = max(min(pa_dict["down_left"], pv_dict["ccw_slow"]), min(pa_dict["down_left"], 1 -  cv_dict["left_fast"]))
         rule_29 = max(min(pa_dict["up_left"], pv_dict["ccw_slow"]), min(pa_dict["up_left"], 1 -  cv_dict["left_fast"]))
         rule_30 = max(min(pa_dict["up_left"], pv_dict["stop"]), min(pa_dict["up_left"], 1 -  cv_dict["left_fast"]))
-        rule_31 = max(min(pa_dict["up_right"], pv_dict["ccw_fast"]), min(pa_dict["up_right"], 1 -  cv_dict["right_fast"]))
-        rule_34 = max(min(pa_dict["up_left"], pv_dict["ccw_fast"]), min(pa_dict["up_left"], 1 -  cv_dict["left_fast"]))
-        rule_39 = max(min(pa_dict["up"], pv_dict["ccw_fast"]), min(pa_dict["up"], 1 -  cv_dict["left_fast"]))
+        rule_31 = min(pa_dict["up_right"], pv_dict["ccw_fast"])
+        rule_34 = max(min(pa_dict["up_left"], pv_dict["ccw_fast"]), min(pa_dict["up_left"], cv_dict["right_fast"]))
+        rule_39 = max(min(pa_dict["up"], pv_dict["ccw_fast"]), min(pa_dict["up"], cv_dict["right_fast"]))
 
         values = [rule_3, rule_4, rule_8, rule_11, rule_19, rule_20, rule_29, rule_30, rule_31, rule_34, rule_39]
 
