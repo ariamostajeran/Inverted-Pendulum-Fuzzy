@@ -373,12 +373,12 @@ class FuzzyController:
 
         rule_5 = max(min(pa_dict["up_more_right"], pv_dict["ccw_fast"]),
                      min(pa_dict["up_more_right"], cv_dict["right_fast"]))
-        # rule_13 = max(min(pa_dict["down_more_right"], pv_dict["ccw_fast"]), min(pa_dict["down_more_right"], cv_dict["right_fast"]))
+        rule_13 = max(min(pa_dict["down_more_right"], pv_dict["ccw_fast"]), min(pa_dict["down_more_right"], cv_dict["right_fast"]))
         rule_22 = max(min(pa_dict["down_right"], pv_dict["cw_fast"]), min( pa_dict["down_right"], cv_dict["right_fast"]))
         rule_25 = max(min(pa_dict["up_right"], pv_dict["ccw_slow"]), min(pa_dict["up_right"], cv_dict["right_fast"]))
         rule_40 = max(min(pa_dict["up"], pv_dict["cw_slow"]) , min(pa_dict["up"], cv_dict["right_fast"]))
 
-        values = [rule_5, rule_22, rule_25, rule_40]
+        values = [rule_5, rule_13, rule_22, rule_25, rule_40]
         return max(values)
 
     def left_fast_calc(self, pv, pa, cv):
@@ -463,11 +463,12 @@ class FuzzyController:
 
         rule_7 = max(min(pa_dict["up_more_left"], pv_dict["cw_fast"]),
                      min(pa_dict["up_more_left"], cv_dict["left_fast"]))
+        rule_15 = max(min(pa_dict["down_more_left"], pv_dict["cw_fast"]),  min(pa_dict["down_more_left"], cv_dict["left_fast"]))
         rule_24 = max(min(pa_dict["down_left"], pv_dict["ccw_fast"]), min(pa_dict["down_left"], cv_dict["left_fast"]))
         rule_28 = max(min(pa_dict["up_left"], pv_dict["cw_slow"]), min(pa_dict["up_left"], cv_dict["left_fast"]))
         rule_38 = max(min(pa_dict["up"], pv_dict["ccw_slow"]), min(pa_dict["up"], cv_dict["left_fast"]))
 
-        values = [rule_7,  rule_24, rule_38, rule_28]
+        values = [rule_7, rule_15,  rule_24, rule_38, rule_28]
 
         return max(values)
 
@@ -507,8 +508,7 @@ class FuzzyController:
 
         rule_10 = min(pa_dict["down_more_right"], pv_dict["cw_slow"], 1 -  cv_dict["right_slow"])
         rule_12 = min(pa_dict["down_more_left"], pv_dict["ccw_slow"], 1 -  cv_dict["left_slow"])
-        rule_13 = min(pa_dict["down_more_right"], pv_dict["ccw_fast"])
-        rule_15 = min(pa_dict["down_more_left"], pv_dict["cw_fast"])
+        # rule_13 = min(pa_dict["down_more_right"], pv_dict["ccw_fast"], 1 -  cv_dict["right_fast"])
         rule_14 = min(pa_dict["down_more_right"], pv_dict["cw_fast"], 1 -  cv_dict["left_slow"])
         rule_16 = min(pa_dict["down_more_left"], pv_dict["ccw_fast"], 1 -  cv_dict["left_slow"])
         rule_21 = min(pa_dict["down_right"], pv_dict["ccw_fast"], 1 -  cv_dict["right_slow"])
@@ -517,7 +517,7 @@ class FuzzyController:
         rule_37 = min(pa_dict["down"], pv_dict["ccw_fast"], 1 -  cv_dict["right_fast"])
         rule_42 = min(pa_dict["up"], pv_dict["stop"], 1 -  cv_dict["stop"])
 
-        values = [rule_0, rule_10,rule_13, rule_15,  rule_12, rule_14, rule_16, rule_21, rule_23, rule_36, rule_37, rule_42]
+        values = [rule_0, rule_10, rule_12, rule_14, rule_16, rule_21, rule_23, rule_36, rule_37, rule_42]
 
         return max(values)
 
